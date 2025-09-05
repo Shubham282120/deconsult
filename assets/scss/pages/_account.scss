@@ -1,0 +1,163 @@
+/**
+ * My Account
+ */
+
+.tm-myaccount {
+
+    &-dashboard,
+    &-address {
+        border: 1px solid $color-border;
+        padding: 30px;
+    }
+
+    &-dashboard {
+        p {
+            a {
+                color: $color-theme;
+
+                &:hover {
+                    color: $color-theme;
+                }
+            }
+        }
+    }
+
+    &-orders {
+        table {
+            text-align: center;
+
+            th,
+            td {
+                vertical-align: middle;
+            }
+        }
+        &-col{
+            &-id{
+                min-width: 100px;
+            }
+            &-date{
+                min-width: 170px;
+            }
+            &-status{
+                min-width: 100px;
+            }
+            &-total{
+                min-width: 180px;
+            }
+            &-view{
+                min-width: 120px;
+            }
+        }
+    }
+
+    &-address {
+        &>p {
+            margin-bottom: 25px;
+        }
+
+        &-billing,
+        &-shipping {
+            border: 1px solid $color-border;
+            padding: 30px;
+            @include clearfix();
+
+            h3 {
+                font-weight: 700;
+            }
+
+            address {
+                margin-bottom: 0;
+            }
+
+            a.edit-button {
+                float: right;
+                padding: 0 8px;
+                background: $color-theme;
+                color: #ffffff;
+                border-radius: 3px;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    @media #{$layout-mobile-sm} {
+
+        &-dashboard,
+        &-address {
+            padding: 20px;
+        }
+
+        &-address {
+            &-billing,
+            &-shipping {
+                padding: 20px;
+            }
+        }
+    }
+}
+
+
+/* Login Register Popup */
+.tm-loginregister-popup {
+    padding-right: 0 !important;
+
+    .close {
+        position: absolute;
+        left: auto;
+        right: 3px;
+        top: 3px;
+        background: $color-theme;
+        font-size: 15px;
+        text-shadow: none;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        color: #ffffff;
+        opacity: 1;
+        line-height: 1;
+        z-index: 1;
+
+        i {
+            line-height: 30px;
+            height: auto;
+        }
+
+        &:hover{
+            color: #ffffff !important;
+        }
+    }
+
+    .modal-dialog {
+        max-width: inherit !important;
+        position: relative;
+        margin: 0;
+    }
+
+    .modal-content {
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+    }
+
+    .tm-loginregister{
+        background: #ffffff;
+        padding: 30px;
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    @media #{$layout-mobile-sm} {
+        .tm-loginregister{
+            padding: 20px;
+        }
+    }
+}
+
+.modal-backdrop {
+    background: #2e2d2d;
+}
+.modal-backdrop.show {
+    opacity: .95;
+}

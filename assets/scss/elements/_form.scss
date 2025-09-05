@@ -1,0 +1,49 @@
+/**
+ * Form Styles
+ */
+
+.tm-form {
+
+    &-inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: -25px;
+    }
+
+    &-field {
+        margin-top: 25px;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        a {
+            color: $color-body;
+
+            &:hover {
+                color: $color-theme;
+            }
+        }
+    }
+
+    &-fieldhalf {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+
+    &.tm-form-bordered {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 3px;
+    }
+
+    @media #{$layout-mobile-sm} {
+        &.tm-form-bordered {
+            padding: 20px;
+        }
+
+        &-fieldhalf {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+}

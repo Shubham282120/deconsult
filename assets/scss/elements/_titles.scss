@@ -1,0 +1,179 @@
+/**
+ * Title
+ */
+
+.tm-section-title {
+    margin-bottom: 55px;
+    margin-top: -4px;
+
+    h2,
+    h3 {
+        margin-top: -9px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: $color-theme;
+    }
+
+    .divider {
+        position: relative;
+        font-size: 20px;
+        color: $color-theme;
+        display: inline-block;
+
+        i {
+            padding-right: 15px;
+            line-height: 1;
+
+            &::before{
+                height: 30px;
+                width: 30px;
+                line-height: 30px;
+                text-align: center;
+                display: inline-block;
+                transform-origin: 50% 50%;
+            }
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 160px;
+            background: $color-theme;
+        }
+
+        &::before {
+            left: auto;
+            right: 100%;
+            top: 50%;
+            display: none;
+        }
+
+        &::after {
+            left: 100%;
+            top: 50%;
+        }
+
+        &.animateon{
+            i{
+                &::before{
+                    animation: tmSpin 2.5s linear 0s infinite;
+                }
+            }
+        }
+    }
+
+    p {
+        margin-top: 15px;
+    }
+
+    &.tm-section-title-white {
+
+        h2,
+        h3 {
+            color: #ffffff;
+        }
+
+        .divider {
+            color: #ffffff;
+
+            &::before,
+            &::after {
+                background: #ffffff;
+            }
+        }
+
+        p {
+            color: #ffffff;
+        }
+    }
+
+    &.text-center {
+        .divider {
+            i {
+                padding: 0 15px;
+            }
+
+            &::before {
+                display: block;
+                width: 120px;
+            }
+
+            &::after {
+                width: 120px;
+            }
+        }
+    }
+
+    &.text-right {
+        .divider {
+            i {
+                padding-left: 15px;
+                padding-right: 0;
+            }
+
+            &::before {
+                display: block;
+                width: 160px;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+
+    @media #{$layout-notebook} {
+        margin-bottom: 50px;
+    }
+
+    @media #{$layout-tablet} {
+        margin-bottom: 45px;
+    }
+
+    @media #{$layout-mobile-lg} {
+        margin-bottom: 40px;
+    }
+
+    @media #{$layout-mobile-sm} {
+        .divider {
+
+            &::before,
+            &::after {
+                width: 75px;
+            }
+        }
+
+        &.text-center,
+        &.text-right {
+            .divider {
+
+                &::before,
+                &::after {
+                    width: 75px;
+                }
+            }
+        }
+    }
+}
+
+
+.small-title {
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-top: -5px;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 70px;
+        background: $color-theme;
+    }
+}

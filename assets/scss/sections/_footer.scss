@@ -1,0 +1,142 @@
+/**
+ * Footer
+ */
+
+.footer {
+
+    &-copyrightarea {
+        padding: 10px 0;
+        background: darken(#2C2F43, 10);
+    }
+
+    &-copyright {
+        margin-bottom: 0;
+        color: #ffffff;
+        padding: 5px 0;
+
+        a {
+            font-weight: 700;
+            color: #ffffff;
+
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    &-copyrightsocial {
+        text-align: right;
+        padding: 5px 0;
+
+        ul {
+            padding-left: 0;
+            margin-bottom: 0;
+
+            li {
+                list-style: none;
+                display: inline-block;
+
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+
+                a {
+                    font-size: 16px;
+                    color: #ffffff;
+                    background: #2c2f43;
+                    display: inline-block;
+                    height: 35px;
+                    width: 35px;
+                    text-align: center;
+                    line-height: 35px;
+                    border-radius: 3px;
+
+                    &:hover {
+                        background: $color-theme;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    @media #{$layout-mobile-lg}{
+        &-copyright{
+            text-align: center;
+        }
+        &-copyrightsocial{
+            text-align: center;
+        }
+    }
+}
+
+.footer-widgets {
+    margin-top: -50px;
+
+    .single-widget {
+        color: #dedede;
+        margin-top: 50px;
+
+        a:not(.tm-button) {
+            color: #dedede;
+
+            &:hover {
+                opacity: 0.75;
+                color: #dedede;
+            }
+        }
+    }
+
+    .widget-title {
+        color: #ffffff;
+
+        &:after {
+            content: "";
+            height: 2px;
+            width: 80px;
+            background: $color-theme;
+        }
+    }
+
+    .widget-recentpost {
+        ul {
+            padding-top: 5px;
+        }
+
+        &-content {
+            h6 {
+                color: #ffffff;
+                font-size: 15px;
+
+                a {
+                    color: #ffffff;
+
+                    &:hover {
+                        color: $color-theme;
+                    }
+                }
+            }
+
+            span {
+                color: #aaaaaa;
+            }
+        }
+    }
+
+    .widget-newsletter {
+        &-form {
+            padding-top: 10px;
+
+            input:not([type="submit"]) {
+                color: #ffffff;
+                border-color: rgba(#ffffff, 0.2);
+                @include placeholder-color(#ffffff);
+
+                &:focus {
+                    background: rgba($color-theme, 0.2);
+                    border-color: rgba($color-theme, 0.6);
+                }
+            }
+        }
+    }
+}

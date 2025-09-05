@@ -1,0 +1,117 @@
+/**
+ * Faq Area
+ */
+
+.tm-faq {
+    &-image {
+        text-align: center;
+    }
+
+    @media #{$layout-tablet} {
+        &-image {
+            margin-bottom: 50px;
+        }
+    }
+
+    @media #{$layout-mobile-lg} {
+        &-image {
+            margin-bottom: 40px;
+        }
+    }
+
+    @media #{$layout-mobile-sm} {
+        &-image {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+/* Accordion Styles */
+.tm-accordion {
+    margin-top: -15px;
+
+    .card {
+        border: none;
+        background: transparent;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+    }
+
+    .card-header {
+        padding: 0;
+        background: transparent;
+        border: 0;
+
+        button {
+            height: auto;
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-family: $ff-heading;
+            color: $color-heading;
+            line-height: 28px;
+            font-weight: 500;
+            text-decoration: none !important;
+            border: 0;
+            position: relative;
+            white-space: inherit;
+            padding: 10px 30px;
+            padding-right: 55px;
+            background: $color-theme;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 400;
+
+            &::before {
+                content: "\f067";
+                font-family: 'fontAwesome';
+                position: absolute;
+                left: auto;
+                right: 0;
+                top: 50%;
+                margin-top: -15px;
+                width: 40px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 12px;
+                border-left: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            &.collapsed {
+                &::before {
+                    content: "\f067";
+                }
+            }
+
+            &:not(.collapsed) {
+                border-radius: 3px 3px 0 0;
+                border-bottom: 1px solid $color-border;
+
+                &:before {
+                    content: "\f068";
+                }
+            }
+        }
+    }
+
+    .card-body {
+        padding: 30px;
+        padding-bottom: 15px;
+        border-radius: 0 0 3px 3px;
+        background: #ffffff;
+    }
+
+    @media #{$layout-mobile-sm} {
+        .card-body {
+            padding: 30px 15px;
+            padding-bottom: 15px;
+        }
+
+        .card-header {
+            button {
+                padding-left: 15px;
+            }
+        }
+    }
+}

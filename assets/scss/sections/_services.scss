@@ -1,0 +1,121 @@
+/**
+ * Service
+ */
+
+.tm-service {
+    padding: 30px 30px;
+    background: #ffffff;
+    position: relative;
+    z-index: 1;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out 0s;
+
+    &-bgicon{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 150px;
+        color: rgba(#ffffff, 0.04);
+        z-index: -1;
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: all 0.4s ease-in-out 0s;
+    }
+
+    &-icon {
+        display: inline-block;
+        font-size: 52px;
+        margin-bottom: 25px;
+        color: $color-theme;
+        border-radius: 1000px;
+        transition: all 0.4s ease-in-out 0s;
+    }
+
+    &-content {
+        h5 {
+            transition: all 0.4s ease-in-out 0s;
+
+            a{
+                color: $color-heading;
+
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        p {
+            transition: all 0.4s ease-in-out 0s;
+        }
+        .tm-readmore{
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &:hover {
+        background: $color-theme;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    &:hover &-bgicon{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover &-icon{
+        color: #ffffff;
+    }
+
+    &:hover &-content{
+        h5, p{
+            color: #ffffff;
+
+            a{
+                color: #ffffff;
+            }
+        }
+        .tm-readmore{
+            color: #ffffff;
+        }
+    }
+
+    @media #{$layout-notebook}{
+        padding: 30px 15px;
+
+        &-bgicon{
+            font-size: 110px;
+        }
+    }
+
+    @media #{$layout-mobile-lg}{
+        &-bgicon{
+            font-size: 110px;
+        }
+    }
+
+    @media #{$layout-mobile-sm}{
+        padding: 30px 15px;
+    }
+}
+
+
+
+.tm-service-details{
+    h2{
+        font-weight: 700;
+    }
+
+    &-image{
+        margin-bottom: 25px;
+    }
+    blockquote{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}

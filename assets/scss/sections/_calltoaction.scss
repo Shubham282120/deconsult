@@ -1,0 +1,46 @@
+/**
+ * Call To Action
+ */
+
+.tm-cta {
+    padding: 30px 0;
+
+    &-content {
+        h3 {
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+    }
+
+    &-button {
+        text-align: right;
+        position: relative;
+        padding-left: 60px;
+
+        &::before {
+            content: url(../images/icons/long-right-arrow.png);
+            left: 0;
+            top: 50%;
+            width: 50px;
+            line-height: 1;
+            position: absolute;
+            margin-top: -7px;
+            animation: tmLeftToRight 2s ease-in-out 0s infinite both;
+        }
+    }
+
+    @media #{$layout-mobile-lg}{
+        &-content{
+            text-align: left;
+        }
+        &-button{
+            text-align: left;
+            padding-left: 0;
+            margin-top: 25px;
+
+            &::before{
+                display: none;
+            }
+        }
+    }
+}

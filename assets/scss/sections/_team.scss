@@ -1,0 +1,136 @@
+/**
+ * Team Member
+ */
+
+.tm-member {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out 0s;
+
+    &-top {
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(#32363d, 0.4);
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease-in-out 0.1s;
+            z-index: 1;
+        }
+
+        img {
+            width: 100%;
+            transition: all 0.4s ease-in-out 0s;
+        }
+    }
+
+    &-social {
+        position: absolute;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        z-index: 2;
+        transform: translateY(100%);
+        transition: all 0.4s ease-in-out 0.1s;
+
+
+        ul {
+            padding: 15px 0;
+            padding-left: 0;
+            margin-bottom: 0;
+            font-size: 0;
+
+            li {
+                list-style: none;
+                margin: 0 -2px;
+                display: inline-block;
+                font-size: 16px;
+                transition: all 0.4s ease-in-out 0.1s;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                a {
+                    font-size: 16px;
+                    color: #ffffff;
+                    display: inline-block;
+                    height: 34px;
+                    width: 34px;
+                    line-height: 1;
+                    text-align: center;
+                    background: $color-theme;
+                    border-radius: 100px;
+                    transition: all 0.3s ease-in-out 0s;
+
+                    i {
+                        line-height: 34px;
+                    }
+
+                    &:hover {
+                        background: #ffffff;
+                        color: $color-theme;
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+
+    &-bottom {
+        text-align: center;
+        padding: 30px 20px;
+        background: #ffffff;
+
+        h5 {
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    &:hover &-top {
+        &::before {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        img {
+            filter: blur(2px);
+        }
+    }
+
+    &:hover &-social {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+
+        ul{
+            li{
+                margin: 0 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+/**
+ * Brand Logo
+ */
+
+.brandlogo {
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        background: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        img{
+            filter: grayscale(100%);
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+            img{
+                filter: grayscale(0);
+            }
+        }
+    }
+}
+
+
+
+.brandlogo-slider {
+    .slick-list {
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: -15px;
+        margin-bottom: -15px;
+    }
+
+    .brandlogo{
+        padding: 0 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}

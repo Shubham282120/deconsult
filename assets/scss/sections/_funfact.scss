@@ -1,0 +1,82 @@
+/**
+ * Funfact
+ */
+
+.tm-funfact-wrapper{
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+.tm-funfact {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+    &-icon {
+        margin-bottom: 10px;
+        display: inline-block;
+        font-size: 50px;
+        color: #ffffff;
+        border-right: 2px solid #ffffff;
+        padding-right: 20px;
+        margin-right: 20px;
+    }
+
+    &-content {
+        .odometer {
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-family: $ff-heading !important;
+            font-weight: 500;
+            font-size: $fz-heading-2;
+            margin-top: -9px;
+            display: block;
+        }
+
+        h5 {
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+    }
+
+    @media #{$layout-notebook}{
+        &-icon{
+            font-size: 40px;
+            margin-right: 15px;
+            padding-right: 15px;
+        }
+
+        &-content{
+            h5{
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media #{$layout-tablet}{
+        justify-content: flex-start;
+    }
+    @media #{$layout-mobile-lg}{
+        justify-content: flex-start;
+
+        &-icon{
+            font-size: 40px;
+            margin-right: 15px;
+            padding-right: 15px;
+        }
+
+        &-content{
+            .odometer{
+                font-size: 28px;
+            }
+            h5{
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media #{$layout-mobile-sm}{
+        justify-content: center;
+    }
+}
