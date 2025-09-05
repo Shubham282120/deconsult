@@ -1181,9 +1181,6 @@ input[type=radio]:checked ~ label::before {
   padding-bottom: 100px;
 }
 
-.tm-padding-section-top {
-  padding-top: 100px;
-}
 
 .tm-padding-section-bottom {
   padding-bottom: 100px;
@@ -3078,6 +3075,31 @@ button.tm-videobutton.tm-videobutton-lg span i {
 }
 
 /* Dropdown Menu */
+/* Target only dropdown li */
+.tm-navigation-dropdown ul li {
+  position: relative;
+  display: inline-block; /* ensures pseudo-element works nicely */
+  padding: 8px 0;
+  transition: all 0.3s ease;
+}
+
+/* Create the border with pseudo-element */
+.tm-navigation-dropdown ul li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* border thickness */
+  background: #4444444f; /* change to your theme color */
+  transition: width 0.3s ease;
+}
+
+/* Animate on hover */
+.tm-navigation-dropdown ul li:hover::after {
+  width: 100%;
+}
+
 .tm-navigation .tm-navigation-dropdown > a::after {
   content: "\f107";
   font-family: 'fontAwesome';
@@ -3087,7 +3109,6 @@ button.tm-videobutton.tm-videobutton-lg span i {
 .tm-navigation .tm-navigation-dropdown ul {
   position: absolute;
   text-align: left;
-  padding: 10px 0;
   left: 100%;
   top: 0;
   width: 250px;
@@ -3114,7 +3135,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 
 .tm-navigation .tm-navigation-dropdown ul li {
   display: block;
-  padding: 0 15px;
+  padding: 5px 15px;
   -webkit-transition: all 0.3s ease-in-out 0s;
   -o-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
@@ -3127,6 +3148,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
   font-weight: 400;
   font-size: 14px;
   color: #444444;
+  font-weight: 600;
 }
 
 .tm-navigation .tm-navigation-dropdown ul li.has-child::after {
@@ -3139,10 +3161,14 @@ button.tm-videobutton.tm-videobutton-lg span i {
   content: "\f105";
   font-family: 'fontAwesome';
   float: right;
+  
 }
 
 .tm-navigation .tm-navigation-dropdown ul li:hover > a {
   color: #170433;
+}
+.tm-navigation .tm-navigation-dropdown ul li:hover > li a {
+border-bottom: 2px solid;
 }
 
 .tm-navigation .tm-navigation-dropdown ul li:hover > ul {
@@ -3157,6 +3183,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 .tm-navigation .tm-navigation-dropdown > ul {
   left: 0;
   top: 100%;
+  
 }
 
 .tm-navigation .tm-navigation-dropdown:hover > ul {
