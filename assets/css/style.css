@@ -842,7 +842,7 @@ input[type=radio]:checked ~ label::before {
 }
 
 .bg-grey {
-  background: #f7f9fb;
+  background: #fff;
 }
 
 .bg-dark {
@@ -3585,6 +3585,7 @@ border-bottom: 2px solid;
 /**
  * Feature
  */
+
 .features-area {
   position: relative;
 }
@@ -4066,6 +4067,7 @@ border-bottom: 2px solid;
  */
 .tm-testimonial-content {
   position: relative;
+  margin: 0 15px;
   padding: 25px 40px;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -7373,7 +7375,7 @@ border-bottom: 2px solid;
 
     .our-promise {
       padding: 80px 20px;
-      background: #ffff;;
+      background: #f7f9fb;;
     }
     
     .steps {
@@ -7469,5 +7471,283 @@ border-bottom: 2px solid;
       }
       .our-promise p.subtitle {
         font-size: 16px;
+      }
+    }
+
+    /* Why Execuler section */
+        /* Section wrapper for content */
+    .features {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .features__intro {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .features__eyebrow {
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #606680;
+      margin-bottom: 12px;
+    }
+
+    .features__title {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      line-height: 1.25;
+      color: #16192f;
+    }
+
+    .features__desc {
+      margin: 12px auto 0;
+      max-width: 62ch;
+      color: #606680;
+    }
+
+    /* Grid layout for feature columns */
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* This removes the gap, making the cards touch */
+      gap: 0;
+      
+      /* Apply a single shadow and border to the whole grid */
+      border: 1px solid #e6e8ef;
+      box-shadow: 0 10px 28px rgba(28, 34, 66, 0.10);
+      overflow: hidden; /* Ensures child borders and shadows are contained */
+    }
+
+    @media (max-width: 1024px) {
+      .features__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .features__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Styles for the individual column cards */
+    .features__col {
+      background: #ffffff;
+      padding: 28px 18px;
+      min-width: 0;
+      /* Remove individual border and shadow */
+      border: none;
+      box-shadow: none;
+      /* Add dividers between columns */
+      border-right: 1px solid #e6e8ef;
+      border-bottom: 1px solid #e6e8ef;
+    }
+    
+    /* Remove right border on the last item in each row */
+    .features__col:nth-child(3n) {
+      border-right: none;
+    }
+    
+    @media (max-width: 1024px) {
+      .features__col:nth-child(2n) {
+        border-right: none;
+      }
+      .features__col:nth-child(2n-1) {
+        border-right: 1px solid #e6e8ef;
+      }
+    }
+    
+    @media (max-width: 680px) {
+      .features__col {
+        border-right: none;
+      }
+    }
+
+    /* Remove bottom border on the last three items */
+    .features__grid:not(:has(.features__col:nth-child(4))) .features__col:last-child {
+      border-bottom: none;
+    }
+    .features__grid:has(.features__col:nth-child(4)) .features__col:nth-child(3) {
+      border-bottom: none;
+    }
+    
+    /* The highlight column has no special styling besides background */
+    .features__col--highlight {
+      background: #ffffff;
+    }
+
+    .features__head {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .features__icon {
+      font-size: 1.6rem;
+      color: #170433;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .features__label {
+      margin: 0;
+      color: #16192f;
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    .features__divider {
+      width: 64px;
+      height: 2px;
+      margin: 12px auto 0;
+      background: #222;
+      border-radius: 3px;
+      opacity: .7;
+    }
+
+    /* Styles for the list of features inside each card */
+    .feature {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      color: #2a2d42;
+      transition: transform 0.24s cubic-bezier(.4, .7, .4, 1), color 0.24s cubic-bezier(.4, .7, .4, 1);
+    }
+
+    .feature+.feature {
+      margin-top: 6px;
+    }
+
+    .feature__icon {
+      font-size: 1.15rem;
+      color: #170433;
+      text-align: center;
+    }
+
+    .feature__text {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Remove hover effects on items as requested */
+    .feature:hover {
+      transform: none;
+      color: #2a2d42;
+      background: transparent;
+    }
+
+    /* Keep keyboard focus visible for accessibility */
+    .feature:focus-visible {
+      outline: 2px solid #170433;
+      outline-offset: 2px;
+      background: transparent;
+      color: #16192f;
+    }
+
+    /* Reduced motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+
+      .features__col,
+      .feature {
+        transition: none;
+      }
+    }
+    /* client transformattion section  */
+
+     .transformation-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px ;
+    }
+
+    /* Base styles for all transformation containers */
+    .transformation-container,
+    .transformation-container-reverse {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 25px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      /* Lighter shadow for a softer look */
+      background-color: #FFFFFF;
+      /* White background for the sections */
+    }
+
+    /* Specific styling for the "Before" container */
+    .transformation-container {
+      flex-direction: row;
+    }
+
+    /* Specific styling for the "After" container */
+    .transformation-container-reverse {
+      flex-direction: row-reverse;
+    }
+
+    /* Image container styling */
+    .transformation-container-img {
+      flex-shrink: 0;
+      border: 2.5px solid #170433;
+      max-width: 40%;
+    }
+
+    .transformation-container-img img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Text container styling */
+    .transformation-container-text {
+      flex-grow: 1;
+      max-width: 60%;
+      padding: 30px;
+    }
+
+    .transformation-container-text h2 {
+      font-size: 2em;
+      color: #170433;
+      /* Dark purple heading color */
+      margin-bottom: 8px;
+    }
+
+    .transformation-container-text p {
+      font-size: 1em;
+      color: #555555;
+      line-height: 1.5;
+    }
+
+    /* Styling for the arrow section */
+    .arrow-container {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .arrow-container img {
+      max-width: 100px;
+      height: auto;
+      display: inline-block;
+    }
+
+    /* Media query for tablets and mobile devices */
+    @media (max-width: 768px) {
+
+      .transformation-container,
+      .transformation-container-reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .transformation-container-img,
+      .transformation-container-text {
+        max-width: 100%;
       }
     }
