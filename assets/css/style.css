@@ -2734,7 +2734,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 }
 
 .header-bottomarea {
-  background: #ffffff;
+  background: #170433;
   -webkit-box-shadow: 5px 0 5px rgba(0, 0, 0, 0.15);
   box-shadow: 5px 0 5px rgba(0, 0, 0, 0.15);
   z-index: 3;
@@ -3060,12 +3060,12 @@ button.tm-videobutton.tm-videobutton-lg span i {
   font-family: "Karla", sans-serif;
   font-weight: 700;
   padding: 35px 20px;
-  color: #444444;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 .tm-navigation ul li:hover > a {
-  color: #170433;
+  color: #c9c5c5;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3981,6 +3981,8 @@ border-bottom: 2px solid;
 
 .tm-service-content h5 a {
   color: #333333;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .tm-service-content h5 a:hover {
@@ -5409,7 +5411,6 @@ border-bottom: 2px solid;
   display: block;
   width: 100%;
   text-align: center;
-  margin-top: 15px;
 }
 
 /* Widget Quicklist */
@@ -7696,12 +7697,14 @@ border-bottom: 2px solid;
       flex-shrink: 0;
       border: 2.5px solid #170433;
       max-width: 40%;
+      border-radius: 10px;
     }
 
     .transformation-container-img img {
       max-width: 100%;
       height: auto;
       display: block;
+      border-radius: 8px;
     }
 
     /* Text container styling */
@@ -7751,3 +7754,107 @@ border-bottom: 2px solid;
         max-width: 100%;
       }
     }
+
+    /* footer style for our services  */
+.quick-links a {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #ddd;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.quick-links a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.quick-links .icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #170433; /* theme color */
+    color: #fff;
+    font-size: 13px;
+    margin-right: 10px;
+    transition: background 0.3s ease;
+}
+/* vission mission goal section  */
+
+    .vmg-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .vmg-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .vmg-card {
+      flex: 1;
+      background: #fff;
+      border-radius: 18px;
+      padding: 40px 25px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vmg-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background:#170433;
+    }
+
+    .vmg-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background:#170433;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 25px auto;
+      box-shadow: 0 4px 15px rgba(23, 4, 51, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .vmg-card h3 {
+      font-size: 1.6rem;
+      color: #170433;
+      margin-bottom: 15px;
+    }
+
+    .vmg-card p {
+      font-size: 1rem;
+      color: #444;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .vmg-container {
+        flex-direction: column;
+      }
+      .vmg-card {
+        width: 100%;
+      }
+    }
+ 
+  
