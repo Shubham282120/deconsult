@@ -908,9 +908,8 @@ input[type=radio]:checked~label::before {
 }
 
 .bg-image-2 {
-  background-image: url(../images/bg/bg-image-2.jpg);
+  background-image: url(../assets/images/own/feedback.jpg);
 }
-
 .bg-image-3 {
   background-image: url(../images/bg/bg-image-3.jpg);
 }
@@ -1045,7 +1044,7 @@ input[type=radio]:checked~label::before {
 }
 
 [data-overlay]:before {
-  background-color: #000000;
+  background-color: #170433;
 }
 
 [data-secondary-overlay]:before {
@@ -1183,7 +1182,7 @@ input[type=radio]:checked~label::before {
 [data-secondary-overlay="9"]:before,
 [data-black-overlay="9"]:before,
 [data-white-overlay="9"]:before {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 [data-overlay="9.5"]:before,
@@ -1330,6 +1329,7 @@ input[type=radio]:checked~label::before {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
 /* 
 #scrollUp {
   right: 30px;
@@ -1408,7 +1408,7 @@ input[type=radio]:checked~label::before {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1200px;
+    max-width: 1300px;
   }
 }
 
@@ -3167,7 +3167,6 @@ button.tm-videobutton.tm-videobutton-lg span i {
   font-weight: 700;
   padding: 35px 20px;
   color: #ffffff;
-  text-transform: uppercase;
 }
 
 .tm-navigation ul li:hover>a {
@@ -3377,7 +3376,6 @@ button.tm-videobutton.tm-videobutton-lg span i {
   padding: 0;
   padding-bottom: 5px;
   margin-bottom: 15px;
-  text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 16px;
   font-weight: 700;
@@ -7605,7 +7603,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -7703,7 +7701,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 /* Why Execuler section */
 /* Section wrapper for content */
 .features {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 80px 20px;
 }
@@ -7892,7 +7890,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 /* client transformattion section  */
 
 .transformation-wrapper {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 80px 20px;
 }
@@ -8018,7 +8016,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 /* vission mission goal section  */
 
 .vmg-section {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 80px 20px;
   text-align: center;
@@ -8141,4 +8139,152 @@ button.tm-videobutton.tm-videobutton-lg span i {
 .whatsapp-icon {
   font-size: 30px;
   color: #FFF;
+}
+
+/* banner  */
+.banner-wrapper {
+  max-width: 1400px;
+  /* Limit max width */
+  margin: 0 auto;
+  /* Center horizontally */
+  width: 100%;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  /* default height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Full banner image */
+.banner-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Second overlay shape */
+.overlay-shape.second {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background: #4d4c4c9d;
+  clip-path: polygon(0% 0%, 73% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+/* First overlay shape */
+.overlay-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: #170433e3;
+  clip-path: polygon(0% 0%, 70% 0, 100% 100%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+  text-align: left;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.overlay-shape h1 {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  /* Responsive text */
+  font-weight: 700;
+  color: #ffffff;
+  margin-left: 20px;
+  line-height: 1.2;
+}
+
+/* ------------ Responsive Breakpoints ------------ */
+
+/* Small laptops (≤1200px) */
+@media (max-width: 1200px) {
+  .banner-container {
+    min-height: 260px;
+  }
+
+  .overlay-shape {
+    width: 65%;
+  }
+
+  .overlay-shape.second {
+    width: 75%;
+  }
+}
+
+/* Tablets (≤992px) */
+@media (max-width: 992px) {
+  .banner-container {
+    min-height: 240px;
+  }
+
+  .overlay-shape {
+    width: 70%;
+    padding: 1rem;
+  }
+
+  .overlay-shape.second {
+    width: 80%;
+  }
+
+  .overlay-shape h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .banner-container {
+    min-height: 200px;
+    flex-direction: column;
+  }
+
+  .overlay-shape,
+  .overlay-shape.second {
+    width: 100%;
+    height: auto;
+    clip-path: none;
+    position: relative;
+    transform: none;
+  }
+
+  .overlay-shape {
+    padding: 1.5rem 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .overlay-shape h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Very small phones (≤480px) */
+@media (max-width: 480px) {
+  .banner-container {
+    min-height: 180px;
+  }
+
+  .overlay-shape h1 {
+    font-size: 1.3rem;
+  }
 }

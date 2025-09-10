@@ -1,473 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>LA MER Cost Sheet</title>
-    <style>
-        @media print {
-            body {
-                font-size: 10pt;
-                line-height: 1.2;
-                zoom: 0.65;
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us Banner</title>
+  <style>
 
-            td {
-                padding: 3px !important;
-            }
+    .banner-wrapper {
+      max-width: 1300px;   /* 👈 Limit max width */
+      margin: 0 auto;      /* 👈 Center horizontally */
+    }
 
-            @page {
-                size: A4 portrait;
-                margin: 0.5cm;
-            }
+    .banner-container {
+      position: relative;
+      width: 100%;
+      min-height: 250px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
-            table,
-            tr,
-            td,
-            h3 {
-                page-break-inside: avoid;
-            }
-        }
+    /* Full banner image */
+    .banner-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            margin: 0;
-            padding: 0;
-        }
+    /* Second overlay shape (grey/white) */
+    .overlay-shape.second {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70%;
+      height: 100%;
+      background: #4d4c4c9d;
+      clip-path: polygon(0% 0%, 73% 0, 100% 100%, 0% 100%);
+      z-index: 1;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 5px; /* Reduced space between tables */
-        }
+    /* First overlay shape (dark purple) */
+    .overlay-shape {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background: #170433e3;
+      clip-path: polygon(0% 0%, 70% 0, 100% 100%, 0% 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      z-index: 2;
+      text-align: left;
+      padding: 1rem 2rem;
+      transition: all 0.3s ease;
+    }
 
-        .header-container {
-            border: 1px solid #000;
-        }
+    .overlay-shape h1 {
+      font-size: clamp(1.2rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
 
-        .header-pic {
-            background: #b6d7a8;
-            font-weight: bold;
-            width: 90%;
-            border-right: 1px solid #000;
-        }
+    /* Tablet view */
+    @media (max-width: 1024px) {
+      .overlay-shape {
+        width: 70%;
+      }
+      .overlay-shape.second {
+        width: 80%;
+      }
+    }
 
-        .header-pic table {
-            margin: 0;
-        }
-
-        .header-pic td {
-            padding: 6px;
-            text-align: center;
-        }
-
-        .info-table td.heading {
-            background-color: #b6d7a8;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        .section-title {
-            text-align: center;
-            font-weight: bold;
-            background-color: #cfe2f3;
-            margin: 0;
-            padding: 8px;
-            border: 1px solid #000;
-        }
-
-        .payment-table .subheading td,
-        .other-charges-table .subheading td {
-            background-color: #cfe2f3;
-            font-weight: bold;
-        }
-
-        .total-row td {
-            background-color: #b6d7a8;
-            font-weight: bold;
-        }
-
-        .grand-total-table td {
-            background-color: #b6d7a8;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .note-table td {
-            font-size: 11px;
-            text-align: center;
-        }
-
-        /* All table cells get borders and padding */
-        td {
-            border: 1px solid #000;
-            padding: 6px;
-        }
-        
-    </style>
+    /* Mobile view */
+    @media (max-width: 768px) {
+      .overlay-shape,
+      .overlay-shape.second {
+        width: 100%;
+        clip-path: none;
+        height: auto;
+        position: relative;
+        transform: none;
+      }
+      .banner-container {
+        flex-direction: column;
+        min-height: 200px;
+      }
+      .overlay-shape {
+        padding: 1.5rem 1rem;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <table class="header-container">
-        <tr>
-            <td class="header-pic">
-                <table width="100%">
-                    <tr>
-                        <td style="border-bottom: 1px solid #000;">LA MER</td>
-                    </tr>
-                    <tr>
-                        <td style="border-bottom: 1px solid #000;">COST SHEET</td>
-                    </tr>
-                    <tr>
-                        <td style="border-bottom: 1px solid #000;">MUMBAI CENTRAL</td>
-                    </tr>
-                    <tr>
-                        <td>Mumbai 400008.</td>
-                    </tr>
-                </table>
-            </td>
 
-            <td style="width:130px; text-align:center; border-left: none;">
-                <img src="https://placehold.co/120x113/ffffff/000000?text=Logo" alt="logo"
-                    style="height: 113px; width: 120px; display: block; border-left: 1px solid #000;">
-            </td>
-        </tr>
-    </table>
+  <div class="banner-wrapper">
+    <section class="banner-container">
+      <!-- Background image from HTML -->
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2560&q=80" alt="Contact Us Banner">
 
-    <table class="info-table">
-        <tr>
-            <td class="heading">Name of the Customer</td>
-            <td colspan="5" style="text-align: center;">Arfat Shaikh</td>
-        </tr>
-        <tr>
-            <td class="heading">Wing</td>
-            <td colspan="5" style="text-align: center;">A</td>
-        </tr>
-        <tr>
-            <td class="heading">Flat No.</td>
-            <td colspan="5" style="text-align: center;">1</td>
-        </tr>
-        <tr>
-            <td class="heading">Flat Type</td>
-            <td colspan="5" style="text-align: center;">2 BHK</td>
-        </tr>
-        <tr>
-            <td class="heading">Flat Area in Sq. Feet</td>
-            <td colspan="5" style="text-align: center;">772.00</td>
-        </tr>
-        <tr>
-            <td class="heading">Parking</td>
-            <td colspan="5" style="text-align: center;">1</td>
-        </tr>
-        <tr>
-            <td class="heading">Flat Value :</td>
-            <td colspan="5" style="text-align: center;">28,564,000</td>
-        </tr>
-    </table>
+      <!-- Second overlay (bottom layer) -->
+      <div class="overlay-shape second"></div>
 
-    <div class="section-title">Payment Plan</div>
-    <table class="payment-table">
-        <tr class="subheading">
-            <td style="text-align: left;">Construction Link Payment Plan</td>
-            <td style="text-align: center;">Amount (%)</td>
-            <td style="text-align: center;">Total Amount Due</td>
-            <td style="text-align: center;">Amount Due</td>
-            <td style="text-align: center;">GST (5%)</td>
-            <td style="text-align: center;">GST Amount</td>
-            <td style="text-align: center;">Total Amount with GST</td>
-            <td style="text-align: center;">TDS 1%</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">BOOKING EARNEST MONEY</td>
-            <td style="text-align: center;">10%</td>
-            <td style="text-align: center;">17,75,600</td>
-            <td style="text-align: center;">17,57,844</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">88,780</td>
-            <td style="text-align: center;">18,64,380</td>
-            <td style="text-align: center;">17,756</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">1ST INSTALLMENT (BALANCE EARNEST MONEY WITHIN 30 DAYS FROM BOOKING AMOUNT)
-            </td>
-            <td style="text-align: center;">30%</td>
-            <td style="text-align: center;">53,26,800</td>
-            <td style="text-align: center;">52,73,532</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">2,66,340</td>
-            <td style="text-align: center;">55,93,140</td>
-            <td style="text-align: center;">53,268</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">2ND INSTALLMENT (5th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">3RD INSTALLMENT (10th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">4TH INSTALLMENT (15th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">5TH INSTALLMENT (20th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">6TH INSTALLMENT (25th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">7TH INSTALLMENT (30th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">8TH INSTALLMENT (35th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">9TH INSTALLMENT (40th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">10TH INSTALLMENT (45th SLAB)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">11TH INSTALLMENT (Super Structure)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">12TH INSTALLMENT (Finishing)</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">ON POSSESSION</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">8,78,922</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">44,390</td>
-            <td style="text-align: center;">9,32,190</td>
-            <td style="text-align: center;">8,878</td>
-        </tr>
-        <tr class="total-row">
-            <td style="text-align: left;">Total</td>
-            <td style="text-align: center;">100%</td>
-            <td style="text-align: center;">1,77,56,000</td>
-            <td style="text-align: center;">1,75,78,844</td>
-            <td style="text-align: center;">5%</td>
-            <td style="text-align: center;">8,87,800</td>
-            <td style="text-align: center;">1,86,43,800</td>
-            <td style="text-align: center;">1,77,560</td>
-        </tr>
-    </table>
+      <!-- First overlay (top layer with text) -->
+      <div class="overlay-shape">
+        <h1>Contact Us</h1>
+      </div>
+    </section>
+  </div>
 
-    <div class="section-title">Stamp Duty & Registration, Legal Charges</div>
-    <table>
-        <tr>
-            <td style="text-align: center;">Stamp Duty</td>
-            <td style="text-align: center;">10,65,360</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Registration Charges</td>
-            <td style="text-align: center;">30,000</td>
-        </tr>
-        <tr class="total-row">
-            <td style="text-align: center;">Total</td>
-            <td style="text-align: center;">10,95,360</td>
-        </tr>
-    </table>
-
-    <table class="grand-total-table" style="margin-top: 5px;">
-        <tr class="total-row">
-            <td>Flat Value Including Government Tax's ( A )</td>
-            <td style="width: 100px;">1,97,39,160</td>
-        </tr>
-    </table>
-
-    <div class="section-title">Other Charges</div>
-    <table class="other-charges-table">
-        <tr class="subheading">
-            <td style="text-align: center;">Description</td>
-            <td style="text-align: center;">Amount</td>
-            <td style="text-align: center;">GST (%)</td>
-            <td style="text-align: center;">GST Amount</td>
-            <td style="text-align: center;">Total Amount</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">1.Development Charges</td>
-            <td style="text-align: center;">1,93,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">34,740</td>
-            <td style="text-align: center;">2,27,740</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">2.Legal Charges</td>
-            <td style="text-align: center;">25,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">4,500</td>
-            <td style="text-align: center;">29,500</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">3.Charges towards Water, Electricity, Drainage, Sewerage Connection etc.</td>
-            <td style="text-align: center;">50,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">9,000</td>
-            <td style="text-align: center;">59,000</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">4.Charges towards MGL Connection</td>
-            <td style="text-align: center;">60,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">10,800</td>
-            <td style="text-align: center;">70,800</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">5.Share Application Charges</td>
-            <td style="text-align: center;">5,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">900</td>
-            <td style="text-align: center;">5,900</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">6.Infra Charges</td>
-            <td style="text-align: center;">20,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">3,600</td>
-            <td style="text-align: center;">23,600</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">7.Society / Condominium Formation</td>
-            <td style="text-align: center;">30,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">5,400</td>
-            <td style="text-align: center;">35,400</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">8.Corpus Fund</td>
-            <td style="text-align: center;">3,47,000</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">62,532</td>
-            <td style="text-align: center;">4,09,932</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">9.Maintenance Charges (1 Year)</td>
-            <td style="text-align: center;">1,48,224</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">26,680</td>
-            <td style="text-align: center;">1,74,904</td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">10.Miscellaneous</td>
-            <td style="text-align: center;">15,00,000</td>
-            <td style="text-align: center;">0%</td>
-            <td style="text-align: center;">-</td>
-            <td style="text-align: center;">15,00,000</td>
-        </tr>
-        <tr class="total-row">
-            <td style="text-align: left;">Total (B)</td>
-            <td style="text-align: center;">23,78,624</td>
-            <td style="text-align: center;">18%</td>
-            <td style="text-align: center;">1,58,152</td>
-            <td style="text-align: center;">25,36,776</td>
-        </tr>
-    </table>
-
-    <table class="grand-total-table" style="margin-top: 5px;">
-        <tr class="total-row">
-            <td>Grand Total (A+B)</td>
-            <td style="width: 100px;">2,22,75,936</td>
-        </tr>
-    </table>
-    
-    <table class="grand-total-table">
-        <tr>
-            <td></td>
-            <td style="width: 140px;"></td>
-            <td style="width: 100px;">0</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td style="width: 140px;">Grand Total</td>
-            <td style="width: 100px;">2,22,75,936</td>
-        </tr>
-    </table>
-
-    <table class="note-table">
-        <tr>
-            <td>Note:The registration formalities are completed by a third-party agency. For which they charge approx Rs. 15000/- at the time of registration.
-            </td>
-        </tr>
-    </table>
 </body>
-
 </html>
