@@ -8143,7 +8143,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 
 /* banner  */
 .banner-wrapper {
-  max-width: 1400px;
+  max-width: auto;
   /* Limit max width */
   margin: 0 auto;
   /* Center horizontally */
