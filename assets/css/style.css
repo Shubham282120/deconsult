@@ -910,6 +910,7 @@ input[type=radio]:checked~label::before {
 .bg-image-2 {
   background-image: url(../images/bg/bg-image-2.jpg);
 }
+
 .bg-image-3 {
   background-image: url(../images/bg/bg-image-3.jpg);
 }
@@ -3436,7 +3437,7 @@ button.tm-videobutton.tm-videobutton-lg span i {
 .heroslider-content h1 {
   color: #ffffff;
   font-weight: 500;
-  text-transform:capitalize;
+  text-transform: capitalize;
   margin-top: -10px;
 }
 
@@ -8285,5 +8286,12 @@ button.tm-videobutton.tm-videobutton-lg span i {
 
   .overlay-shape h1 {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .lottie-container {
+    height: 450px;
+    
   }
 }

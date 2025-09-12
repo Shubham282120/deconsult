@@ -381,11 +381,12 @@
                                 <p class="form-messages"></p>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-5">
-                            <div class="tm-contact-map">
-                                <div id="google-map"></div>
-                            </div>
-                        </div> -->
+                        <div class="col-lg-5">
+                            <!-- <div class="tm-contact-map"> -->
+                                <!-- <div id="google-map"></div> -->
+                                 <div id="lottie-container"></div>
+                            <!-- </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -684,6 +685,7 @@
     <!--// Wrapper -->
 
     <!-- Google Map -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgwgIuDRkO7HlxvpWN-vPePnGVWss5r5g"></script>
     <script src="assets/js/google-map.js"></script>
 
@@ -697,6 +699,16 @@
     <script src="assets/js/ajaxmail.js"></script>
     <script src="assets/js/main.js"></script>
     <!--// Js Files -->
+     <script>
+        var animation = lottie.loadAnimation({
+          container: document.getElementById('lottie-container'), // DOM element to render animation
+          renderer: 'svg',  
+          loop: true,     
+          autoplay: true,
+          path: './assets/json/globe.json' 
+        });
+      </script>
+
 </body>
 
 </html>
