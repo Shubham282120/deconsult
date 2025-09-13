@@ -1,125 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us Banner</title>
-  <style>
-
-    .banner-wrapper {
-      max-width: 1300px;   /* 👈 Limit max width */
-      margin: 0 auto;      /* 👈 Center horizontally */
-    }
-
-    .banner-container {
-      position: relative;
-      width: 100%;
-      min-height: 250px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    /* Full banner image */
-    .banner-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    /* Second overlay shape (grey/white) */
-    .overlay-shape.second {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 70%;
-      height: 100%;
-      background: #4d4c4c9d;
-      clip-path: polygon(0% 0%, 73% 0, 100% 100%, 0% 100%);
-      z-index: 1;
-      transform: translateX(-10px);
-      transition: all 0.3s ease;
-    }
-
-    /* First overlay shape (dark purple) */
-    .overlay-shape {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60%;
-      height: 100%;
-      background: #170433e3;
-      clip-path: polygon(0% 0%, 70% 0, 100% 100%, 0% 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      z-index: 2;
-      text-align: left;
-      padding: 1rem 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .overlay-shape h1 {
-      font-size: clamp(1.2rem, 4vw, 2.2rem);
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0;
-    }
-
-    /* Tablet view */
-    @media (max-width: 1024px) {
-      .overlay-shape {
-        width: 70%;
-      }
-      .overlay-shape.second {
-        width: 80%;
-      }
-    }
-
-    /* Mobile view */
-    @media (max-width: 768px) {
-      .overlay-shape,
-      .overlay-shape.second {
+<style>
+    .video-gallery {
         width: 100%;
-        clip-path: none;
-        height: auto;
-        position: relative;
-        transform: none;
-      }
-      .banner-container {
-        flex-direction: column;
-        min-height: 200px;
-      }
-      .overlay-shape {
-        padding: 1.5rem 1rem;
-        align-items: center;
-        text-align: center;
-      }
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        gap: 2rem;
+        
     }
-  </style>
-</head>
-<body>
 
-  <div class="banner-wrapper">
-    <section class="banner-container">
-      <!-- Background image from HTML -->
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2560&q=80" alt="Contact Us Banner">
+    .video-item {
+        position: relative;
+        cursor: pointer;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        min-width: 300px;
+        height: 400px;
+    }
 
-      <!-- Second overlay (bottom layer) -->
-      <div class="overlay-shape second"></div>
+    .video-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.75rem;
+        pointer-events: none;
+    }
 
-      <!-- First overlay (top layer with text) -->
-      <div class="overlay-shape">
-        <h1>Contact Us</h1>
-      </div>
-    </section>
-  </div>
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        transition: background-color 0.2s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-</body>
-</html>
+    .video-item:hover .video-overlay {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .play-icon {
+        width: 24px;
+        height: 24px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 9999px;
+        padding: 0.75rem;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .video-item:hover .play-icon {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Popup */
+    .video-popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .video-popup.active {
+        display: flex;
+    }
+
+    .video-popup video {
+        width: 100%;
+        height: 100%;
+        max-width: 70vw;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 0.75rem;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.75rem;
+        color: #fff;
+        font-size: 1.875rem;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .video-gallery {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .video-item {
+            min-width: 100%;
+        }
+
+        .video-popup video {
+            max-width: 100%;
+            max-height: 100vh;
+        }
+    }
+</style>
+
+<div class="video-gallery">
+    <!-- Video 1 -->
+    <div class="video-item">
+        <video muted autoplay loop preload="metadata">
+            <source src="/wp-content/uploads/2025/09/donisis-video-.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-item">
+        <video muted autoplay loop preload="metadata">
+            <source src="/wp-content/uploads/2025/09/donisis-video-.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-item">
+        <video muted autoplay loop preload="metadata">
+            <source src="/wp-content/uploads/2025/09/donisis-video-.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay">
+            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<!-- Popup -->
+<div class="video-popup" id="videoPopup">
+    <span class="close-btn">&times;</span>
+    <video id="popupVideo" controls></video>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const videoItems = document.querySelectorAll(".video-item");
+        const popup = document.getElementById("videoPopup");
+        const popupVideo = document.getElementById("popupVideo");
+        const closeBtn = document.querySelector(".video-popup .close-btn");
+
+        videoItems.forEach(item => {
+            item.addEventListener("click", () => {
+                const videoSrc = item.querySelector('source').src;
+                popupVideo.src = videoSrc;
+                popup.classList.add("active");
+                popupVideo.play();
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            popup.classList.remove("active");
+            popupVideo.pause();
+            popupVideo.src = "";
+        });
+
+        popup.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.classList.remove("active");
+                popupVideo.pause();
+                popupVideo.src = "";
+            }
+        });
+    });
+</script>

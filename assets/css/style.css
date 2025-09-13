@@ -6371,6 +6371,8 @@ button.tm-videobutton.tm-videobutton-lg span i {
 }
 
 .tm-contact-formwrapper h5 {
+  font-size: 30px;
+  font-weight: 700;
   margin-bottom: 20px;
   margin-top: -4px;
 }
@@ -8292,6 +8294,6 @@ button.tm-videobutton.tm-videobutton-lg span i {
 @media (max-width: 992px) {
   .lottie-container {
     height: 450px;
-    
+
   }
 }
