@@ -73,7 +73,7 @@
             <!--// Header Top Area -->
 
             <!-- Header Bottom Area -->
-              <div class="header-bottomarea">
+            <div class="header-bottomarea">
                 <div class="container">
                     <div class="header-bottominner">
                         <div class="header-logo">
@@ -125,23 +125,23 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                               <li class="tm-navigation-dropdown">
+                                <li class="tm-navigation-dropdown">
                                     <a href="services.html">What We Do</a>
                                     <ul>
                                         <li>
                                             <a href="services.html">Business Services and Outsourcing</a>
                                             <ul>
-                                                <li><a href="Finance-Accounting-Done-For-You.html">Finance & Accounting
+                                                <li><a href="Finance-Accounting.html">Finance & Accounting
                                                     </a></li>
-                                                <li><a href="Remote Office – Powered by AI.html">Remote Office </a>
+                                                <li><a href="Remote-Office.html">Remote Office </a>
                                                 </li>
-                                                <li><a href="Shared Service Centre - Powered by AI.html">Shared Service
+                                                <li><a href="Shared-Service-Centre.html">Shared Service
                                                         Centre </a></li>
-                                                <li><a href="Project Management Office.html">Project Management
+                                                <li><a href="Project-Management-Office.html">Project Management
                                                         Office</a></li>
                                                 <li><a href="Digitisation-Automation.html">Digitisation & Automation</a>
                                                 </li>
-                                                <li><a href="The Growth Playbook.html">The Growth Playbook</a></li>
+                                                <li><a href="The-Growth-Playbook.html">The Growth Playbook</a></li>
                                             </ul>
                                         </li>
                                         <li>
@@ -297,8 +297,7 @@
         <div class="banner-wrapper">
             <section class="banner-container">
                 <!-- Background image from HTML -->
-                <img src="assets/images/own/service detail banner.png"
-                    alt="Contact Us Banner">
+                <img src="assets/images/own/service detail banner.png" alt="Contact Us Banner">
 
                 <!-- Second overlay (bottom layer) -->
                 <div class="overlay-shape second"></div>
@@ -476,7 +475,7 @@
         <div class="footer fixed-footer">
 
             <!-- Footer Widgets Area -->
-             <div class="footer-toparea tm-padding-section" data-bgimage="assets/images/bg/footer-bg.jpg"
+            <div class="footer-toparea tm-padding-section" data-bgimage="assets/images/bg/footer-bg.jpg"
                 data-overlay="2">
                 <div class="container">
                     <div class="row widgets footer-widgets">
@@ -514,28 +513,28 @@
                             <!-- Single Widget (Widget Quick Links) -->
                             <div class="single-widget widget-quicklinks">
                                 <h5 class="widget-title">OUR SERVICES</h5>
-                                 <div class="quick-links">
-                                    <a href="service-details.html">
+                                <div class="quick-links">
+                                    <a href="Finance-Accounting.html">
                                         <span class="icon-circle"><i class="fas fa-calculator"></i></span>
-                                        Finance & Accounting 
+                                        Finance & Accounting
                                     </a>
-                                    <a href="service-details.html">
+                                    <a href="Remote-Office.html">
                                         <span class="icon-circle"><i class="fas fa-robot"></i></span>
-                                        Remote Office 
+                                        Remote Office
                                     </a>
-                                    <a href="service-details.html">
+                                    <a href="Shared-Service-Centre.html">
                                         <span class="icon-circle"><i class="fas fa-network-wired"></i></span>
-                                        Shared Service Centre 
+                                        Shared Service Centre
                                     </a>
-                                    <a href="service-details.html">
+                                    <a href="Project-Management-Office.html">
                                         <span class="icon-circle"><i class="fas fa-project-diagram"></i></span>
                                         Project Management Office
                                     </a>
-                                    <a href="service-details.html">
+                                    <a href="Digitisation-Automation.html">
                                         <span class="icon-circle"><i class="fas fa-cogs"></i></span>
                                         Digitisation & Automation
                                     </a>
-                                         <a href="The Growth Playbook.html">
+                                    <a href="The-Growth-Playbook.html">
                                         <span class="icon-circle"><i class="fas fa-robot"></i></span>
                                         The Growth Playbook
                                     </a>
@@ -700,29 +699,25 @@
                                         <div class="tab-pane fade" id="bstab1-area2" role="tabpanel"
                                             aria-labelledby="bstab1-area2-tab">
 
-                                            <form action="#" class="tm-form tm-register-form tm-form-bordered">
-                                                <h4>Create an account</h4>
+                                            <form action="assets/php/mailer.php" class="tm-form tm-contact-form">
                                                 <div class="tm-form-inner">
                                                     <div class="tm-form-field">
-                                                        <label for="register-username">Username</label>
-                                                        <input type="text" id="register-username" required="required">
-                                                    </div>
-                                                    <div class="tm-form-field">
-                                                        <label for="register-email">Email address</label>
-                                                        <input type="email" id="register-email" required="required">
-                                                    </div>
-                                                    <div class="tm-form-field">
-                                                        <label for="register-password">Password</label>
-                                                        <input type="password" id="register-password"
+                                                        <label for="full-name">Full Name</label>
+                                                        <input type="text" id="full-name" name="name"
                                                             required="required">
                                                     </div>
                                                     <div class="tm-form-field">
-                                                        <input type="checkbox" id="register-terms">
-                                                        <label for="register-terms">I have read and agree to the
-                                                            website terms and conditions</label>
+                                                        <label for="email-address">Email Address</label>
+                                                        <input type="email" id="email-address" name="email"
+                                                            required="required">
                                                     </div>
                                                     <div class="tm-form-field">
-                                                        <button type="submit" class="tm-button">Register
+                                                        <label for="message-box">Message</label>
+                                                        <textarea id="message-box" name="message"
+                                                            required="required"></textarea>
+                                                    </div>
+                                                    <div class="tm-form-field">
+                                                        <button type="submit" class="tm-button">Send Message
                                                             <b></b></button>
                                                     </div>
                                                 </div>
