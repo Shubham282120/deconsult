@@ -73,7 +73,7 @@
             <!--// Header Top Area -->
 
             <!-- Header Bottom Area -->
-             <div class="header-bottomarea">
+            <div class="header-bottomarea">
                 <div class="container">
                     <div class="header-bottominner">
                         <div class="header-logo">
@@ -81,7 +81,7 @@
                                 <img src="assets/images/logo/exe.png   " alt="deconsult logo">
                             </a>
                         </div>
-                         <nav class="tm-navigation">
+                        <nav class="tm-navigation">
                             <ul>
                                 <li><a href="index.html">Who Are We</a>
                                     <!-- <ul>
@@ -125,7 +125,7 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                               <li class="tm-navigation-dropdown">
+                                <li class="tm-navigation-dropdown">
                                     <a href="services.html">What We Do</a>
                                     <ul>
                                         <li>
@@ -297,8 +297,7 @@
         <div class="banner-wrapper">
             <section class="banner-container">
                 <!-- Background image from HTML -->
-                <img src="assets/images/own/service detail banner.png"
-                    alt="Contact Us Banner">
+                <img src="assets/images/own/service detail banner.png" alt="Contact Us Banner">
 
                 <!-- Second overlay (bottom layer) -->
                 <div class="overlay-shape second"></div>
@@ -355,7 +354,7 @@
                     <div class="col-lg-7">
                         <div class="tm-contact-formwrapper">
                             <h5>How can we help you?</h5>
-                            <form action="assets/php/mailer.php" id="tm-contactform" class="tm-form">
+                            <form method="POST" action="assets/php/mailer.php" class="tm-form">
                                 <div class="tm-form-inner">
                                     <div class="tm-form-field">
                                         <input type="text" name="name" placeholder="Name*">
@@ -417,21 +416,24 @@
                         </div>
                         <!-- form  -->
                         <div class="col-lg-4 col-12">
-                            <form action="assets/php/mailer.php"
-                                class="tm-form tm-form-bordered tm-form-white service-contact-form sticky-sidebar">
+                            <form method="POST" action="assets/php/mailer.php"
+                                class=" tm-form-bordered tm-form-white   sticky-sidebar">
                                 <h3 class="tm-form-title">How can we help you?</h3>
                                 <div class="tm-form-inner">
                                     <div class="tm-form-field">
                                         <label for="contact-name">Full Name*</label>
-                                        <input type="text" id="contact-name" required="required">
+                                        <input type="text" name="name" id="contact-name" required="required">
+                                        <input type="hidden" name="url" value="/Finance-Accounting.html">
+                                        <input type="hidden" name="serviceDetails" value="Finance & Accounting">
+
                                     </div>
                                     <div class="tm-form-field">
                                         <label for="contact-email">Email Address*</label>
-                                        <input type="email" id="contact-email" required="required">
+                                        <input type="email" name="email" id="contact-email" required="required">
                                     </div>
                                     <div class="tm-form-field">
                                         <label for="contact-message">Your Message*</label>
-                                        <textarea id="contact-message" required="required"></textarea>
+                                        <textarea id="contact-message" name="message" required="required"></textarea>
                                     </div>
                                     <div class="tm-form-field">
                                         <button type="submit" class="tm-button">Submit Now <b></b></button>
@@ -511,18 +513,18 @@
                             <!-- Single Widget (Widget Quick Links) -->
                             <div class="single-widget widget-quicklinks">
                                 <h5 class="widget-title">OUR SERVICES</h5>
-                               <div class="quick-links">
+                                <div class="quick-links">
                                     <a href="Finance-Accounting.html">
                                         <span class="icon-circle"><i class="fas fa-calculator"></i></span>
-                                        Finance & Accounting 
+                                        Finance & Accounting
                                     </a>
                                     <a href="Remote-Office.html">
                                         <span class="icon-circle"><i class="fas fa-robot"></i></span>
-                                        Remote Office 
+                                        Remote Office
                                     </a>
                                     <a href="Shared-Service-Centre.html">
                                         <span class="icon-circle"><i class="fas fa-network-wired"></i></span>
-                                        Shared Service Centre 
+                                        Shared Service Centre
                                     </a>
                                     <a href="Project-Management-Office.html">
                                         <span class="icon-circle"><i class="fas fa-project-diagram"></i></span>
@@ -532,7 +534,7 @@
                                         <span class="icon-circle"><i class="fas fa-cogs"></i></span>
                                         Digitisation & Automation
                                     </a>
-                                         <a href="The-Growth-Playbook.html">
+                                    <a href="The-Growth-Playbook.html">
                                         <span class="icon-circle"><i class="fas fa-robot"></i></span>
                                         The Growth Playbook
                                     </a>

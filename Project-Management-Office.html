@@ -420,21 +420,24 @@
                         </div>
                         <!-- form  -->
                         <div class="col-lg-4 col-12">
-                            <form action="assets/php/mailer.php"
-                                class="tm-form tm-form-bordered tm-form-white service-contact-form sticky-sidebar">
+                              <form method="POST" action="assets/php/mailer.php"
+                                class=" tm-form-bordered tm-form-white   sticky-sidebar">
                                 <h3 class="tm-form-title">How can we help you?</h3>
                                 <div class="tm-form-inner">
                                     <div class="tm-form-field">
                                         <label for="contact-name">Full Name*</label>
-                                        <input type="text" id="contact-name" required="required">
+                                        <input type="text" name="name" id="contact-name" required="required">
+                                        <input type="hidden" name="url" value="/Project-Management-Office.html">
+                                        <input type="hidden" name="serviceDetails" value="Finance & Accounting">
+
                                     </div>
                                     <div class="tm-form-field">
                                         <label for="contact-email">Email Address*</label>
-                                        <input type="email" id="contact-email" required="required">
+                                        <input type="email" name="email" id="contact-email" required="required">
                                     </div>
                                     <div class="tm-form-field">
                                         <label for="contact-message">Your Message*</label>
-                                        <textarea id="contact-message" required="required"></textarea>
+                                        <textarea id="contact-message" name="message" required="required"></textarea>
                                     </div>
                                     <div class="tm-form-field">
                                         <button type="submit" class="tm-button">Submit Now <b></b></button>
