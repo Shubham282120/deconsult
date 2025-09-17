@@ -1,191 +1,175 @@
-<style>
-    .video-gallery {
-        width: 100%;
-        max-width: 1300px;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        gap: 2rem;
-        
-    }
-
-    .video-item {
-        position: relative;
-        cursor: pointer;
-        border-radius: 0.75rem;
-        overflow: hidden;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        min-width: 300px;
-        height: 400px;
-    }
-
-    .video-item video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0.75rem;
-        pointer-events: none;
-    }
-
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        transition: background-color 0.2s ease-in-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .video-item:hover .video-overlay {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .play-icon {
-        width: 24px;
-        height: 24px;
-        color: #fff;
-        background-color: rgba(0, 0, 0, 0.6);
-        border-radius: 9999px;
-        padding: 0.75rem;
-        transition: background-color 0.2s ease-in-out;
-    }
-
-    .video-item:hover .play-icon {
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    /* Popup */
-    .video-popup {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        align-items: center;
-        justify-content: center;
-    }
-
-    .video-popup.active {
-        display: flex;
-    }
-
-    .video-popup video {
-        width: 100%;
-        height: 100%;
-        max-width: 70vw;
-        max-height: 70vh;
-        object-fit: contain;
-        border-radius: 0.75rem;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 1.25rem;
-        right: 1.75rem;
-        color: #fff;
-        font-size: 1.875rem;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        .video-gallery {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .video-item {
-            min-width: 100%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <style>
+        /* --- GENERAL STYLES --- */
+        body {
+            background-color: #f4f4f4; /* Added a light background for better contrast */
+            margin: 0;
         }
 
-        .video-popup video {
-            max-width: 100%;
-            max-height: 100vh;
+        /* --- CARD CONTAINER WIDGET --- */
+        .card-row-widget {
+            display: grid;
+            /* Mobile First: 2 columns by default */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            font-family: 'Helvetica Neue', sans-serif;
+            padding: 24px;
+            /* Max width and centering */
+            max-width: 2000px;
+            margin: 0 auto;
         }
-    }
-</style>
 
-<div class="video-gallery">
-    <!-- Video 1 -->
-    <div class="video-item">
-        <video muted autoplay loop preload="metadata">
-            <source src="/wp-content/uploads/2025/09/donisis-video-.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay">
-            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        </div>
-    </div>
-
-    <!-- Video 2 -->
-    <div class="video-item">
-        <video muted autoplay loop preload="metadata">
-            <source src="/wp-content/uploads/2025/09/donisis-video-.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay">
-            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        </div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="video-item">
-        <video muted autoplay loop preload="metadata">
-            <source src="/wp-content/uploads/2025/09/donisis-video-.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay">
-            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        </div>
-    </div>
-</div>
-
-<!-- Popup -->
-<div class="video-popup" id="videoPopup">
-    <span class="close-btn">&times;</span>
-    <video id="popupVideo" controls></video>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const videoItems = document.querySelectorAll(".video-item");
-        const popup = document.getElementById("videoPopup");
-        const popupVideo = document.getElementById("popupVideo");
-        const closeBtn = document.querySelector(".video-popup .close-btn");
-
-        videoItems.forEach(item => {
-            item.addEventListener("click", () => {
-                const videoSrc = item.querySelector('source').src;
-                popupVideo.src = videoSrc;
-                popup.classList.add("active");
-                popupVideo.play();
-            });
-        });
-
-        closeBtn.addEventListener("click", () => {
-            popup.classList.remove("active");
-            popupVideo.pause();
-            popupVideo.src = "";
-        });
-
-        popup.addEventListener("click", (e) => {
-            if (e.target === popup) {
-                popup.classList.remove("active");
-                popupVideo.pause();
-                popupVideo.src = "";
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        /* Tablet: 3 columns */
+        @media (min-width: 768px) {
+            .card-row-widget {
+                grid-template-columns: repeat(3, 1fr);
             }
-        });
-    });
-</script>
+        }
+
+        /* Desktop: 6 columns */
+        @media (min-width: 1200px) {
+            .card-row-widget {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        /* --- PRODUCT CARD STYLES --- */
+        .product-card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card-widget {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card-widget:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- The Key Rule for Perfect Image Fit --- */
+        .product-image-widget {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area, maintaining aspect ratio */
+            display: block;
+        }
+        
+        .product-overlay-widget {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px;
+            box-sizing: border-box;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+            color: white;
+            text-align: center;
+        }
+
+        .product-title-widget {
+            color: #fff;
+            font-size: 23px;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .product-discount-widget {
+            color: #fff;
+            font-size: 16px;
+            margin: 4px 0 0 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .discount-amount-widget {
+            color: #FF4136;
+            font-weight: bold;
+        }
+
+        .category-label-widget {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-row-widget">
+
+        <a href="rugs.html" class="product-card-link">
+            <div class="product-card-widget">
+                <img src="https://i.imgur.com/G5t7n4u.jpeg" alt="Elegant blue curtains" class="product-image-widget">
+                <div class="product-overlay-widget">
+                    <h3 class="product-title-widget">Curtains</h3>
+                    <p class="product-discount-widget">Upto <span class="discount-amount-widget">50%</span></p>
+                </div>
+            </div>
+        </a>
+    
+        <a href="carpets.html" class="product-card-link">
+            <div class="product-card-widget">
+                <img src="https://i.imgur.com/xIu551n.jpeg" alt="White mattress" class="product-image-widget">
+               <div class="product-overlay-widget">
+                    <h3 class="product-title-widget">Mattress</h3>
+                    <p class="product-discount-widget">Upto <span class="discount-amount-widget">30%</span></p>
+                </div>
+            </div>
+        </a>
+    
+        <a href="runners.html" class="product-card-link">
+            <div class="product-card-widget">
+                <img src="https://i.imgur.com/iY9K0dC.jpeg" alt="Geometric pattern wallpaper" class="product-image-widget">
+                <div class="product-overlay-widget">
+                    <h3 class="product-title-widget">Wallpaper</h3>
+                    <p class="product-discount-widget">Upto <span class="discount-amount-widget">50% Off</span></p>
+                </div>
+            </div>
+        </a>
+    
+        <a href="doormats.html" class="product-card-link">
+            <div class="product-card-widget">
+                <img src="https://i.imgur.com/gK98h8f.jpeg" alt="Shaggy white rug" class="product-image-widget">
+                <div class="product-overlay-widget">
+                    <h3 class="product-title-widget">Rugs</h3>
+                    <p class="product-discount-widget">Upto <span class="discount-amount-widget">20% Off</span></p>
+                </div>
+            </div>
+        </a>
+    
+        <a href="jute-rugs.html" class="product-card-link">
+            <div class="product-card-widget">
+                <img src="https://i.imgur.com/g0t7Cqj.jpeg" alt="Wooden window blinds" class="product-image-widget">
+                <div class="product-overlay-widget">
+                    <h3 class="product-title-widget">Blinds</h3>
+                    <p class="product-discount-widget">Upto <span class="discount-amount-widget">50% Off</span></p>
+                </div>
+            </div>
+        </a>
+        
+        <a href="bath-mats.html" class="product-card-link">
+            <div class="product-card-widget">
+                <img src="https://i.imgur.com/5V3y3Qh.jpeg" alt="Modern grey sofa" class="product-image-widget">
+                <div class="product-overlay-widget">
+                    <h3 class="product-title-widget">Sofa</h3>
+                    <p class="product-discount-widget">Upto <span class="discount-amount-widget">55% Off</span></p>
+                </div>
+            </div>
+        </a>
+    
+    </div>
+
+</body>
+</html>
